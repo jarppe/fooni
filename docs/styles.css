@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  width: 100%;
+}
+
+body {
+  font-family: 'ZCOOL XiaoWei', serif;
+  width: 100%;
+}
+
+.main {
+  width: 100%;
+  margin: 2rem;  
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+}
+
+h1 {
+  width: 100%;
+  background: red;
+  font-size: 3rem;
+}
+
+.controls {
+  display: flex;
+  flex-flow: row;
+}
+
+.arrow {
+  font-size: 4rem;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+.info {
+  color: gray;
+}
+
+.info table {
+  border: none;
+  padding: 1rem;
+}
+
+.info table td {
+  padding: 3px;
+  color: black;
+}
+
+.info table td:first-child {
+  color: gray;
+}
