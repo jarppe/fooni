@@ -15,42 +15,32 @@ body {
 
 .main {
   width: 100%;
-  margin: 2rem;  
+  padding: 2rem;  
   display: flex;
   flex-flow: column;
-  align-items: stretch;
+  align-items: center;
 }
 
 h1 {
-  width: 100%;
-  background: red;
-  font-size: 3rem;
+  font-size: 2rem;
+}
+
+#video {
+  object-fit: contain;
+  max-width: 80%;
 }
 
 .controls {
   display: flex;
   flex-flow: row;
+  align-items: center;
 }
 
 .arrow {
-  font-size: 4rem;
-  padding: 2rem 1rem 1rem 1rem;
-}
-
-.info {
-  color: gray;
-}
-
-.info table {
-  border: none;
+  font-size: 2rem;
   padding: 1rem;
 }
 
-.info table td {
-  padding: 3px;
-  color: black;
-}
-
-.info table td:first-child {
-  color: gray;
+#videos {
+  padding: 1rem;
 }

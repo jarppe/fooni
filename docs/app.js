@@ -34,37 +34,59 @@ const currentVideoIndex = () => {
 }
 
 
-const showVideo = (i) => {
-  let f = videos[i];
-  document.getElementById("fileIndex").innerText = f.index;
-  document.getElementById("time").innerText = f.time;
-  document.getElementById("flyer").innerText = f.flyer;
-  document.getElementById("view").innerText = f.view;
-  document.getElementById("video").src = videoBase + f.file;
+const showVideo = i => {
+  document.getElementById("video-" + i).selected = true;
+  document.getElementById("video").src = videoBase +  videos[i].file;
 };
 
+
+const setIndex = i => {
+  window.location.hash = "#" + i;
+}
 
 const moveIndex = (e, direction) => {
   e.preventDefault();
   var i = currentVideoIndex() + direction,
       i = (i >= videos.length) ? 0 : i,
       i = (i < 0) ? videos.length - 1 : i;
-  window.location.hash = "#" + i;
+  setIndex(i);
 }
 
 
-const nextVideo = (e) => moveIndex(e, 1);
-const prevVideo = (e) => moveIndex(e, -1);
+const nextVideo = e => moveIndex(e, 1);
+const prevVideo = e => moveIndex(e, -1);
 
 
-const onHashChange = (_) => {
+const onHashChange = _ => {
   showVideo(currentVideoIndex());
 };
 
 
+const onSelectChange = (_) => {
+  setIndex(parseInt(document.getElementById("videos").value, 10));
+}
+
 const init = () => {
   document.getElementById("nextFile").addEventListener("click", nextVideo);
   document.getElementById("prevFile").addEventListener("click", prevVideo);
+  
+  let videosSelect = document.getElementById("videos");
+  for (let index = 0; index < videos.length; index++) {
+    let option = document.createElement("option"),
+        video = videos[index];
+    
+    option.value = "" + index
+    option.id = "video-" + index;
+    option.innerText = 
+      video.flyer + 
+      ", " + 
+      video.view + 
+      " (" + video.time + ")";   
+    
+    videosSelect.appendChild(option);
+  }
+  videosSelect.addEventListener("change", onSelectChange);
+
   window.onhashchange = onHashChange;
 
   if (window.location.hash === "") {
