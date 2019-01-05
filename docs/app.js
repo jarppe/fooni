@@ -66,6 +66,7 @@ const onSelectChange = (_) => {
   setIndex(parseInt(document.getElementById("videos").value, 10));
 }
 
+
 const init = () => {
   document.getElementById("nextFile").addEventListener("click", nextVideo);
   document.getElementById("prevFile").addEventListener("click", prevVideo);
@@ -95,5 +96,6 @@ const init = () => {
     onHashChange(null);
   }
 }
+
 
 document.addEventListener("DOMContentLoaded", init);
